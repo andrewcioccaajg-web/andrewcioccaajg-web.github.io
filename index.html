@@ -96,130 +96,28 @@ nav {
     color: white;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, rgba(0, 59, 112, 0.85) 0%, rgba(26, 72, 106, 0.85) 100%), 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a2e45" width="1200" height="800"/><rect fill="%23243d52" x="100" y="50" width="300" height="400" opacity="0.3"/><rect fill="%23243d52" x="800" y="100" width="350" height="500" opacity="0.4"/><circle cx="200" cy="150" r="80" fill="%23365f7f" opacity="0.2"/><circle cx="1000" cy="600" r="120" fill="%23365f7f" opacity="0.15"/></svg>');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 40px;
-    text-align: center;
-    color: white;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-badge {
-    display: inline-block;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
-    color: rgba(255,255,255,0.8);
-}
-
-.hero h1 {
-    font-size: 72px;
-    font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.hero h1 .accent {
-    color: #5fa3d8;
-}
-
-.hero p {
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.9);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-}
-
-.btn-primary {
-    background: white;
-    color: #003b70;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    padding: 14px 32px;
-    border: 2px solid white;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.stats-box {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 16px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 42px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 8px;
-}
-
-.stat-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.7);
-    font-weight: 600;
-}
-
-/* Content Sections */
+/* Main Content */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 40px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-size: 48px;
+    color: #003b70;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 18px;
+    color: #666;
 }
 
 .section {
@@ -381,6 +279,12 @@ tr:hover {
     line-height: 1.6;
 }
 
+.coverage-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
 .tooltip {
     position: relative;
     cursor: help;
@@ -446,6 +350,17 @@ tr:hover {
     margin-bottom: 15px;
 }
 
+.recommendation-section ul {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.recommendation-section li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 15px;
+}
+
 footer {
     background: #003b70;
     color: white;
@@ -456,8 +371,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 44px;
+    .page-header h1 {
+        font-size: 36px;
     }
     
     .nav-menu {
@@ -466,16 +381,6 @@ footer {
     
     .section {
         padding: 30px;
-    }
-    
-    .stats-box {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 25px;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
     }
 }
 
@@ -510,7 +415,6 @@ footer {
     </div>
     
     <ul class="nav-menu">
-        <li><a href="#home">Home</a></li>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#coverage">Coverage</a></li>
     </ul>
@@ -520,44 +424,17 @@ footer {
     </div>
 </nav>
 
-<!-- Hero Section -->
-<div class="hero">
-    <div class="hero-badge">★ TRUSTED PARTNER</div>
-    
-    <h1>Expertise.<br>Guidance.<br><span class="accent">Support.</span></h1>
-    
-    <p>Jamaica Manor deserves comprehensive insurance and risk management solutions. Gallagher delivers tailored programs that protect your community while maximizing value and minimizing cost.</p>
-    
-    <div class="hero-buttons">
-        <button class="btn-primary">Get a Quote</button>
-        <button class="btn-secondary">View Proposal Details</button>
-    </div>
-    
-    <div class="stats-box">
-        <div class="stat-item">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Years in Florida</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">1,000+</div>
-            <div class="stat-label">Associations Served</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">$1.4K</div>
-            <div class="stat-label">Annual Savings</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">$6M</div>
-            <div class="stat-label">Total Protection</div>
-        </div>
-    </div>
-</div>
-
 <!-- Main Content -->
 <div class="container">
 
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Jamaica Manor, Inc.</h1>
+        <p>Insurance Program Enhancements & Recommendation | 2026-2027 Renewal Review</p>
+    </div>
+
     <!-- Executive Summary -->
-    <div class="section">
+    <div class="section" id="overview">
         <h2>Executive Dashboard</h2>
         
         <div class="kpi-grid">
@@ -827,11 +704,11 @@ footer {
             Overall, the proposed structure delivers:
         </p>
         
-        <ul style="margin-left: 20px; margin-top: 15px;">
-            <li style="margin-bottom: 10px;"><strong>Broader liability protection</strong> – Increased from $1M to $6M across all exposures</li>
-            <li style="margin-bottom: 10px;"><strong>Enhanced theft & fraud protection</strong> – New Crime & Fidelity coverage addresses cybersecurity risks</li>
-            <li style="margin-bottom: 10px;"><strong>Simplified administration</strong> – Single carrier property program reduces complexity</li>
-            <li style="margin-bottom: 10px;"><strong>Lower overall cost</strong> – $1,461 annual savings despite expanded coverage</li>
+        <ul>
+            <li><strong>Broader liability protection</strong> – Increased from $1M to $6M across all exposures</li>
+            <li><strong>Enhanced theft & fraud protection</strong> – New Crime & Fidelity coverage addresses cybersecurity risks</li>
+            <li><strong>Simplified administration</strong> – Single carrier property program reduces complexity</li>
+            <li><strong>Lower overall cost</strong> – $1,461 annual savings despite expanded coverage</li>
         </ul>
     </div>
 

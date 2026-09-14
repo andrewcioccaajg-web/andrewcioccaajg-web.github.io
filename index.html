@@ -22,7 +22,7 @@ body {
 /* Navigation Bar */
 nav {
     background: #ffffff;
-    padding: 15px 40px;
+    padding: 12px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,13 +42,33 @@ nav {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-weight: bold;
-    color: #003b70;
+}
+
+.logo-image {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-image svg {
+    height: 100%;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-text-main {
     font-size: 18px;
+    font-weight: 700;
+    color: #000;
 }
 
 .logo-text-sub {
-    font-size: 11px;
+    font-size: 10px;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -393,22 +413,29 @@ footer {
 <nav>
     <div class="nav-left">
         <div class="logo">
-            <svg width="32" height="32" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#1a3d5c;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#0d2540;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <ellipse cx="100" cy="75" rx="85" ry="65" fill="url(#logoGrad)"/>
-                <ellipse cx="105" cy="75" rx="78" ry="60" fill="#3d7fb8" opacity="0.6"/>
-                <circle cx="100" cy="75" r="50" fill="none" stroke="#5fa3d8" stroke-width="2"/>
-                <line x1="100" y1="25" x2="100" y2="125" stroke="#5fa3d8" stroke-width="1.5"/>
-                <line x1="50" y1="75" x2="150" y2="75" stroke="#5fa3d8" stroke-width="1.5"/>
-                <text x="105" y="100" font-size="70" font-weight="bold" fill="#0d2540" font-family="Georgia, serif">G</text>
-            </svg>
-            <div>
-                Gallagher
+            <div class="logo-image">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" width="50" height="38">
+                    <!-- Blue oval background -->
+                    <ellipse cx="25" cy="30" rx="22" ry="28" fill="#1a5ba0"/>
+                    
+                    <!-- Light blue overlay -->
+                    <ellipse cx="27" cy="30" rx="20" ry="26" fill="#2a7fc9" opacity="0.8"/>
+                    
+                    <!-- Globe circle -->
+                    <circle cx="25" cy="30" r="18" fill="none" stroke="#5fa3d8" stroke-width="1.5"/>
+                    
+                    <!-- Meridian -->
+                    <line x1="25" y1="12" x2="25" y2="48" stroke="#5fa3d8" stroke-width="1"/>
+                    
+                    <!-- Equator -->
+                    <line x1="7" y1="30" x2="43" y2="30" stroke="#5fa3d8" stroke-width="1"/>
+                    
+                    <!-- G Letter -->
+                    <text x="26" y="37" font-size="26" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Georgia, serif">G</text>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <div class="logo-text-main">Gallagher</div>
                 <div class="logo-text-sub">Community Association Group</div>
             </div>
         </div>

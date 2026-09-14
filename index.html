@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jamaica Manor, Inc. | Insurance Program Enhancements & Recommendation</title>
+
+<style>
+
+:root{
+    --blue:#003b70;
+    --green:#1f8f4d;
+    --lightgreen:#eefaf2;
+    --light:#f4f7fb;
+    --border:#d8e0ea;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--light);
+    font-family:Arial, Helvetica, sans-serif;
+    color:#333;
+}
+
+.container{
+    max-width:1300px;
+    margin:auto;
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    padding-bottom:20px;
+    border-bottom:2px solid var(--border);
+}
+
+.logo-container{
+    max-width:180px;
+    height:80px;
+    display:flex;
+    align-items:center;
+}
+
+.logo-container svg{
+    width:100%;
+    height:auto;
+}
+
+.hero{
+    background:linear-gradient(135deg,#003b70,#005ea6);
+    color:white;
+    border-radius:16px;
+    padding:50px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:.95;
+}
+
+.section{
+    background:white;
+    border-radius:14px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.section h2{
+    color:var(--blue);
+    margin-bottom:20px;
+}
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.kpi{
+    background:white;
+    border-left:6px solid var(--green);
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.kpi h3{
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.kpi .number{
+    font-size:34px;
+    color:var(--green);
+    font-weight:bold;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:var(--blue);
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    background:var(--lightgreen);
+    font-weight:bold;
+    font-size:18px;
+}
+
+.savings{
+    background:#f8fff9;
+    color:var(--green);
+    font-weight:bold;
+}
+
+.highlight{
+    background:var(--lightgreen);
+    border-left:6px solid var(--green);
+    padding:25px;
+    border-radius:12px;
+}
+
+.coverage-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(400px,1fr));
+    gap:20px;
+}
+
+.card{
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+}
+
+.card h3{
+    color:var(--blue);
+    margin-bottom:15px;
+}
+
+.badge{
+    background:var(--green);
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+ul{
+    margin-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+.recommendation{
+    background:var(--lightgreen);
+    border-left:6px solid var(--green);
+    border-radius:12px;
+    padding:30px;
+}
+
+.footer{
+    text-align:center;
+    color:#777;
+    margin-top:30px;
+    padding-top:20px;
+    border-top:2px solid var(--border);
+}
+
+.tooltip{
+    position:relative;
+    cursor:help;
+    color:#003b70;
+    font-weight:600;
+}
+
+.tooltip .tooltiptext{
+    visibility:hidden;
+    width:340px;
+    background:#003b70;
+    color:#fff;
+    text-align:left;
+    border-radius:8px;
+    padding:12px;
+    position:absolute;
+    z-index:1000;
+    bottom:130%;
+    left:0;
+    opacity:0;
+    transition:opacity .25s;
+    line-height:1.4;
+    font-weight:normal;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.tooltip:hover .tooltiptext{
+    visibility:visible;
+    opacity:1;
+}
+
+@media(max-width:768px){
+
+.header{
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+}
+
+.coverage-grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.tooltip .tooltiptext{
+    width:260px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <div class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+            <!-- Dark blue left side of oval -->
+            <ellipse cx="150" cy="75" rx="120" ry="70" fill="#1a3a52"/>
+            
+            <!-- Light blue right side of oval -->
+            <ellipse cx="160" cy="75" rx="115" ry="68" fill="#4a90d9"/>
+            
+            <!-- Globe circle -->
+            <circle cx="150" cy="75" r="55" fill="none" stroke="#6ba3d5" stroke-width="2.5"/>
+            
+            <!-- Horizontal grid line -->
+            <line x1="95" y1="75" x2="205" y2="75" stroke="#7cb3e0" stroke-width="1.5"/>
+            
+            <!-- Vertical grid line -->
+            <line x1="150" y1="20" x2="150" y2="130" stroke="#7cb3e0" stroke-width="1.5"/>
+            
+            <!-- Upper horizontal arc -->
+            <path d="M 115 50 Q 150 35 185 50" stroke="#7cb3e0" stroke-width="1.5" fill="none"/>
+            
+            <!-- Lower horizontal arc -->
+            <path d="M 115 100 Q 150 115 185 100" stroke="#7cb3e0" stroke-width="1.5" fill="none"/>
+            
+            <!-- Large G letter -->
+            <text x="150" y="95" font-size="70" font-weight="bold" fill="#1a3a52" text-anchor="middle" font-family="Arial, sans-serif">G</text>
+            
+            <!-- Registered trademark -->
+            <circle cx="220" cy="55" r="7" fill="none" stroke="#6ba3d5" stroke-width="1.5"/>
+            <text x="220" y="61" font-size="10" fill="#6ba3d5" text-anchor="middle" font-weight="bold">®</text>
+        </svg>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>Jamaica Manor, Inc.</h1>
+    <p>Insurance Program Enhancements & Recommendation</p>
+    <p>2026-2027 Renewal Review</p>
+</div>
+
+<div class="section">
+
+<h2>Executive Dashboard</h2>
+
+<div class="kpi-grid">
+
+<div class="kpi">
+    <h3>Annual Savings</h3>
+    <div class="number">$1,461</div>
+    <p>Lower total premium despite broader coverage.</p>
+</div>
+
+<div class="kpi">
+    <h3>Total Liability Protection</h3>
+    <div class="number">$6M</div>
+    <p>Added a $5M umbrella above GL, D&O and Employers Liability coverage.</p>
+</div>
+
+<div class="kpi">
+    <h3>Property Program</h3>
+    <div class="number">2 → 1</div>
+    <p>Consolidated Citizens and Lloyd's into a single carrier solution.</p>
+</div>
+
+<div class="kpi">
+    <h3>Crime Coverage</h3>
+    <div class="number">NEW</div>
+    <p>Employee Theft, Computer Fraud and Funds Transfer Fraud added.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Annual Program Cost Comparison</h2>
+
+<table>
+
+<tr>
+<th>Coverage</th>
+<th>Current Program</th>
+<th>Proposed Program</th>
+</tr>
+
+<tr>
+<td>Property</td>
+<td>$41,062</td>
+<td>$40,871</td>
+</tr>
+
+<tr>
+<td>General Liability</td>
+<td>$7,821</td>
+<td>$4,242</td>
+</tr>
+
+<tr>
+<td>Umbrella</td>
+<td>$0</td>
+<td>$1,728</td>
+</tr>
+
+<tr>
+<td>Crime / Fidelity</td>
+<td>$0</td>
+<td>$581</td>
+</tr>
+
+<tr>
+<td>D&O</td>
+<td>$4,468</td>
+<td>$4,468</td>
+</tr>
+
+<tr>
+<td>Flood</td>
+<td>TBD</td>
+<td>TBD</td>
+</tr>
+
+<tr class="total">
+<td>TOTAL PROGRAM COST</td>
+<td>$53,351*</td>
+<td>$51,890*</td>
+</tr>
+
+<tr class="savings">
+<td>NET CHANGE</td>
+<td colspan="2">-$1,461 Annual Savings</td>
+</tr>
+
+</table>
+
+<br>
+
+<p><em>*Flood premium not included. Totals will be updated upon receipt of the flood policy.</em></p>
+
+</div>
+
+<div class="section">
+
+<h2>Key Improvements</h2>
+
+<div class="highlight">
+
+<ul>
+<li>✅ Property coverage consolidated from Citizens and Lloyd's into a single carrier.</li>
+<li>✅ General Liability premium reduced approximately $3,600 annually.</li>
+<li>✅ Added Assault & Battery coverage under the General Liability policy.</li>
+<li>✅ Added a $5,000,000 Umbrella Liability policy.</li>
+<li>✅ Increased total liability protection from approximately $1M to $6M.</li>
+<li>✅ Umbrella sits above General Liability, Directors & Officers, and Employers Liability exposures.</li>
+<li>✅ Increased Employee Theft Crime Limits from $10,000 to $200,000.</li>
+<li>✅ Added Funds Transfer Fraud protection.</li>
+<li>✅ Reduced overall insurance spend despite broader protection.</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Recommended Insurance Program</h2>
+
+<div class="coverage-grid">
+
+<div class="card">
+
+<h3>Property <span class="badge">Recommended</span></h3>
+
+<p><strong>Current:</strong> Citizens Wind + Lloyd's X-Wind</p>
+<p><strong>Proposed:</strong> Frontline</p>
+
+<br>
+
+<ul>
+
+<li class="tooltip">
+Single Carrier Solution
+<span class="tooltiptext">
+Combines the current Citizens Wind and Lloyd's X-Wind structure into a single carrier solution, simplifying administration and claims handling.
+</span>
+</li>
+
+<li class="tooltip">
+Higher Building Valuation
+<span class="tooltiptext">
+Frontline provides increased insured values compared to the expiring property program.
+</span>
+</li>
+
+<li class="tooltip">
+Equipment Breakdown Included
+<span class="tooltiptext">
+Coverage is included for certain sudden and accidental breakdowns of covered building systems and equipment.
+</span>
+</li>
+
+<li class="tooltip">
+Special Form Coverage
+<span class="tooltiptext">
+Broad property coverage designed to cover direct physical loss unless specifically excluded.
+</span>
+</li>
+
+<li class="tooltip">
+Property Premium Reduced
+<span class="tooltiptext">
+Overall property premium is lower despite consolidating the program under one carrier.
+</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>General Liability <span class="badge">Recommended</span></h3>
+
+<p><strong>Current:</strong> Richmond National</p>
+<p><strong>Proposed:</strong> Westchester / Chubb</p>
+
+<br>
+
+<ul>
+
+<li>$1,000,000 Occurrence Limit</li>
+
+<li>$2,000,000 General Aggregate</li>
+
+<li class="tooltip">
+Medical Payments Included
+<span class="tooltiptext">
+Adds $5,000 of Medical Payments coverage which was excluded under the current policy.
+</span>
+</li>
+
+<li class="tooltip">
+Assault & Battery Coverage Added
+<span class="tooltiptext">
+The current program excludes Assault & Battery coverage. The proposed Westchester policy includes this coverage, providing a meaningful enhancement for a residential condominium association.
+</span>
+</li>
+
+<li class="tooltip">
+Hired & Non-Owned Auto Included
+<span class="tooltiptext">
+Provides liability coverage for certain vehicle exposures arising out of association operations.
+</span>
+</li>
+
+<li class="tooltip">
+Premium Savings
+<span class="tooltiptext">
+General Liability premium is reduced by approximately $3,600 annually while improving coverage.
+</span>
+</li>
+
+<li class="tooltip">
+Chubb-Affiliated Carrier
+<span class="tooltiptext">
+Westchester is part of the Chubb organization, one of the largest commercial insurance groups worldwide.
+</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Umbrella Liability <span class="badge">New</span></h3>
+
+<ul>
+
+<li class="tooltip">
+$5,000,000 Liability Limit
+<span class="tooltiptext">
+Adds an additional $5,000,000 layer of liability protection above the association's underlying insurance program.
+</span>
+</li>
+
+<li>Carrier: Midvale Indemnity</li>
+
+<li>Annual Premium: $1,728</li>
+
+<li class="tooltip">
+Sits Above Multiple Policies
+<span class="tooltiptext">
+The umbrella sits above General Liability, Hired & Non-Owned Auto, Workers Compensation Employers Liability, and Directors & Officers coverage.
+</span>
+</li>
+
+<li class="tooltip">
+Total Liability Protection Increased
+<span class="tooltiptext">
+Increases the association's available liability protection from approximately $1,000,000 to $6,000,000.
+</span>
+</li>
+
+<li class="tooltip">
+Critical for Habitational Risks
+<span class="tooltiptext">
+Condominium associations can face severe liability claims that exceed primary policy limits. This umbrella provides an additional layer of protection when those losses occur.
+</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Crime & Fidelity <span class="badge">New</span></h3>
+
+<ul>
+
+<li class="tooltip">
+Employee Theft: $200,000
+<span class="tooltiptext">
+Protects association funds from theft committed by covered employees.
+</span>
+</li>
+
+<li class="tooltip">
+Computer Fraud: $100,000
+<span class="tooltiptext">
+Protects against theft of association funds caused by unauthorized computer activity.
+</span>
+</li>
+
+<li class="tooltip">
+Funds Transfer Fraud: $100,000
+<span class="tooltiptext">
+Protects against fraudulent instructions directing association funds to unauthorized accounts.
+</span>
+</li>
+
+<li class="tooltip">
+Fraudulent Inducement: $25,000
+<span class="tooltiptext">
+Provides limited protection when funds are transferred based on fraudulent misrepresentations.
+</span>
+</li>
+
+<li>Annual Premium: $581</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Directors & Officers</h3>
+
+<ul>
+<li>Carrier: Philadelphia Indemnity</li>
+<li>Limit: $1,000,000</li>
+<li>Premium: $4,468</li>
+<li>No Changes Recommended</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>Flood Coverage</h3>
+
+<p><strong>Status:</strong> Awaiting Policy</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="recommendation">
+
+<h2>Broker Recommendation</h2>
+
+<p>
+Based on our review of the available options, we recommend moving forward with the proposed insurance program.
+</p>
+
+<br>
+
+<p>
+The revised structure consolidates the property program into a single carrier, reduces General Liability costs, adds Assault & Battery coverage, introduces a $5,000,000 Umbrella Liability policy, adds dedicated Crime & Fidelity protection, and maintains the current Directors & Officers program.
+</p>
+
+<br>
+
+<p>
+Overall, the proposed structure provides broader liability protection, improved protection against theft and fraud, simplified program administration, and a lower overall insurance spend for the association.
+</p>
+
+</div>
+
+<div class="footer">
+Prepared by Arthur J. Gallagher & Co. for Jamaica Manor, Inc.
+</div>
+
+</div>
+
+</body>
+</html>
